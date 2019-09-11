@@ -11,7 +11,7 @@
   <!-- google font -->
   <link href="https://fonts.googleapis.com/css?family=Lalezar&display=swap" rel="stylesheet">
   <!--Font Awesome-->
-  <script src="https://use.fontawesome.com/abd289e58f.js"></script>
+  <script defer="" src="https://use.fontawesome.com/releases/v5.0.7/js/all.js"></script>
 </head>
 
 <body>
@@ -20,7 +20,11 @@
     <div class="container text-start">
       <h1 class="display-3">GifTastic!</h1>
       <p class="lead">Select an Athlete name below to display a Gif.</p>
-
+      <i class="fas fa-trophy"></i>
+      <i class="fas fa-baseball-ball"></i>
+      <i class="fas fa-football-ball"></i>
+      <i class="fas fa-golf-ball"></i>
+      <i class="fas fa-hockey-puck"></i>
     </div>
   </div>
   <!-- search section  -->
@@ -30,11 +34,26 @@
       <div class="col-6 mr-5 border">
         <p class="lead mt-3">Select an Athlete</p>
         <hr>
+        <div class="btn-group inline pull-left">
+    <button class="btn mr-1" id="show" data-search="Stranger Things">Stranger Things</button>
+    <button class="btn mr-1" id="show" data-search="Narcos">Narcos</button>
+    <button class="btn mr-1" id="show" data-search="Luke Cage">Luke Cage</button>
+    <button class="btn mr-1" id="show" data-search="Jessica Jones">Jessica Jones</button>
+
+    <div id="myButtons"></div>
+  </div> <!--end of button group -->
       </div>
       <!-- choose new athlete -->
       <div class="col-5 border">
         <p class="lead mt-3">Add an athlete button</p>
         <hr>
+        <form class="form-inline" id="netflixSearch">
+          <div class="form-group mb-3 mr-1">
+            <input type="text" id="netflixInput">
+          </div>
+          <!-- Button triggers show to be added -->
+          <input class="mb-3"id="addShow" type="submit" value="submit">
+        </form>
       </div>
     </div>
 
@@ -45,6 +64,11 @@
       <div class="col">
         <p class="lead">Search Results</p>
         <hr>
+        <div class="row">
+  <div class="container">
+      <span><div id="gifArea"></div></span>
+  </div> <!--end of container -->
+</div> <!-- end of row  -->
 
       </div>
 

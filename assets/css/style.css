@@ -1,6 +1,6 @@
 body{
   font-family: 'Lalezar', cursive;
-
+color:#666;
 }
 
 
@@ -13,4 +13,8 @@ color: #f6f6f6;
   color: #666;
   font-family: 'Lalezar', cursive;
 
+}
+.btn{
+  background-color: #6c7b95;
+  color:#fff;
 }
