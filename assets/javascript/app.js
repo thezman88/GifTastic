@@ -14,7 +14,7 @@ $(document).ready(function() {
         $.ajax({
           url: queryURL,
           method: "GET"
-        }).done(function(response) {
+        }).then(function(response) {
           var results = response.data;
           console.log(results);
           for (var i = 0; i < results.length; i++) {
@@ -39,3 +39,46 @@ $(document).ready(function() {
           }
         });
       }
+      //Submit button click event takes search term from form input, trims and pushes to topics array, displays button
+$("#addShow").on("click", function(event) {
+      event.preventDefault();
+      var newShow = $("#netflixInput").val().trim();
+      topics.push(newShow);
+      console.log(topics);
+      $("#netflixInput").val('');
+      displayButtons();
+    });
+    //Function iterates through topics array to display button with array values in "myButtons" section of HTML
+function displayButtons() {
+  $("#myButtons").empty();
+  for (var i = 0; i < topics.length; i++) {
+    var a = $('<button class="btn btn-primary">');
+    a.attr("id", "show");
+    a.attr("data-search", topics[i]);
+    a.text(topics[i]);
+    $("#myButtons").append(a);
+  }
+}
+
+
+displayButtons();
+
+//Click event on button with id of "show" executes displayNetflixShow function
+$(document).on("click", "#show", displayNetflixShow);
+
+//Click event on gifs with class of "netflixGiphy" executes pausePlayGifs function
+$(document).on("click", ".netflixGiphy", pausePlayGifs);
+
+//Function accesses "data-state" attribute and depending on status, changes image source to "data-animate" or "data-still"
+function pausePlayGifs() {
+   var state = $(this).attr("data-state");
+    if (state === "still") {
+      $(this).attr("src", $(this).attr("data-animate"));
+      $(this).attr("data-state", "animate");
+    } else {
+      $(this).attr("src", $(this).attr("data-still"));
+      $(this).attr("data-state", "still");
+}
+}
+
+});
