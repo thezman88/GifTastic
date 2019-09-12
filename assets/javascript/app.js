@@ -1,10 +1,9 @@
 $(document).ready(function() {
-      //Array for searched topics to be added
+      //Array for  topics to be added
       var topics = [];
 
-      //Function with AJAX call to GIPHY; Q parameterc for API link set to search term, limit 10 results
-      //Create div with respective still and animate image sources with "data-state", "data-still" and "data-animate" attributes
-      function displayNetflixShow() {
+
+      function showAthlete() {
 
         var x = $(this).data("search");
         console.log(x);
@@ -28,7 +27,7 @@ $(document).ready(function() {
             var p = $("<p>").text("Rating: " + rating);
 
             showImage.attr("src", staticSrc);
-            showImage.addClass("netflixGiphy");
+            showImage.addClass("athleteGiphy");
             showImage.attr("data-state", "still");
             showImage.attr("data-still", staticSrc);
             showImage.attr("data-animate", defaultAnimatedSrc);
@@ -42,8 +41,8 @@ $(document).ready(function() {
       //Submit button click event takes search term from form input, trims and pushes to topics array, displays button
 $("#addShow").on("click", function(event) {
       event.preventDefault();
-      var newShow = $("#netflixInput").val().trim();
-      topics.push(newShow);
+      var newAthlete = $("#netflixInput").val().trim();
+      topics.push(newAthlete);
       console.log(topics);
       $("#netflixInput").val('');
       displayButtons();
@@ -64,10 +63,10 @@ function displayButtons() {
 displayButtons();
 
 //Click event on button with id of "show" executes displayNetflixShow function
-$(document).on("click", "#show", displayNetflixShow);
+$(document).on("click", "#show", showAthlete);
 
 //Click event on gifs with class of "netflixGiphy" executes pausePlayGifs function
-$(document).on("click", ".netflixGiphy", pausePlayGifs);
+$(document).on("click", ".athleteGiphy", pausePlayGifs);
 
 //Function accesses "data-state" attribute and depending on status, changes image source to "data-animate" or "data-still"
 function pausePlayGifs() {
