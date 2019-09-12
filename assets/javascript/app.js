@@ -19,7 +19,7 @@ $(document).ready(function() {
           console.log(results);
           for (var i = 0; i < results.length; i++) {
 
-            var showDiv = $("<div class='col-md-4'>");
+            var showDiv = $("<div class='col-4'>");
 
             var rating = results[i].rating;
             var defaultAnimatedSrc = results[i].images.fixed_height.url;
@@ -52,7 +52,7 @@ $("#addShow").on("click", function(event) {
 function displayButtons() {
   $("#myButtons").empty();
   for (var i = 0; i < topics.length; i++) {
-    var a = $('<button class="btn btn-primary">');
+    var a = $('<button class="btn mr-1">');
     a.attr("id", "show");
     a.attr("data-search", topics[i]);
     a.text(topics[i]);
