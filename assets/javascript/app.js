@@ -18,7 +18,7 @@ $(document).ready(function() {
           console.log(results);
           for (var i = 0; i < results.length; i++) {
 
-            var showDiv = $("<div class='col-4'>");
+            var showDiv = $("<div class='col-lg-4'>");
 
             var rating = results[i].rating;
             var defaultAnimatedSrc = results[i].images.fixed_height.url;
@@ -41,10 +41,10 @@ $(document).ready(function() {
       //Submit button click event takes search term from form input, trims and pushes to topics array, displays button
 $("#addShow").on("click", function(event) {
       event.preventDefault();
-      var newAthlete = $("#netflixInput").val().trim();
+      var newAthlete = $("#athleteInput").val().trim();
       topics.push(newAthlete);
       console.log(topics);
-      $("#netflixInput").val('');
+      $("#athleteInput").val('');
       displayButtons();
     });
     //Function iterates through topics array to display button with array values in "myButtons" section of HTML
@@ -62,10 +62,10 @@ function displayButtons() {
 
 displayButtons();
 
-//Click event on button with id of "show" executes displayNetflixShow function
+//Click event on button with id of "show" executes display athlete function
 $(document).on("click", "#show", showAthlete);
 
-//Click event on gifs with class of "netflixGiphy" executes pausePlayGifs function
+//Click event on gifs with class of "athleteGiphy" executes pausePlayGifs function
 $(document).on("click", ".athleteGiphy", pausePlayGifs);
 
 //Function accesses "data-state" attribute and depending on status, changes image source to "data-animate" or "data-still"
