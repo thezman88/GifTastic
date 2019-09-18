@@ -55,7 +55,7 @@ $(document).ready(function() {
       a.attr("id", "show");
       a.attr("data-search", topics[i]);
       a.text(topics[i]);
-      $("#myButtons").append(a);
+      $(".btn-group").append(a);
     }
   }
 
